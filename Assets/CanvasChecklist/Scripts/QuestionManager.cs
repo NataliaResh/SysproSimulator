@@ -11,24 +11,23 @@ public class QuestionnManager : MonoBehaviour
 
 
     private int currentCanvas = 0;
+
     void Start()
     {
         foreach (GameObject obj in canvas)
         {
             obj.SetActive(false);
         }
-        canvas[0].SetActive(true);
 
     }
-    void Update()
+
+    public void StartGame()
     {
-
+        canvas[0].SetActive(true);
     }
+
     public void NextQuestion(GameObject Button)
     {
-        canvas[currentCanvas].SetActive(false);
-        currentCanvas++;
-        canvas[currentCanvas].SetActive(true);
         if (Button.gameObject.CompareTag("CorrectAnswer"))
         {
             gameManager.CorrectAnswer();
@@ -37,7 +36,16 @@ public class QuestionnManager : MonoBehaviour
         {
             gameManager.IncorrectAnswer();
         }
+        canvas[currentCanvas].SetActive(false);
+        currentCanvas++;
+        if (currentCanvas == canvas.Count)
+        {
+            gameManager.End(currentCanvas);
+            return;
+        }
+        canvas[currentCanvas].SetActive(true);
+        
     }
-   
+
 
 }
