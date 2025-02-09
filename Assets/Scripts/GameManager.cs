@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     private int DegreeMood = 2;
-    private int countAnswers = 0;
+    //private int countAnswers = 0;
     private int countCorrectAnswers = 0;
     void Start()
     {

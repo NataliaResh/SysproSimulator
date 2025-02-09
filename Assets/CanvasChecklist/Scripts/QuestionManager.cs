@@ -4,20 +4,42 @@ using UnityEngine;
 
 public class QuestionnManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField]
+    private GameManager gameManager;
+    [SerializeField]
+    private List<GameObject> canvas = new List<GameObject>();
+
+    private int currentCanvas = 0;
     void Start()
     {
 
     }
 
-    // Update is called once per frame
     void Update()
     {
 
     }
     public void NextQuestion(GameObject Button)
     {
+        foreach (GameObject obj in canvas)
+        {
+            obj.SetActive(false);
+        }
+        canvas[0].SetActive(true);
+    }
 
+    public void NextQuestion(GameObject Button)
+    {
+        canvas[currentCanvas].SetActive(false);
+        currentCanvas++;
+        if (Button.gameObject.CompareTag("CorrectAnswer"))
+        {
+            gameManager.CorrectAnswer();
+        }
+        else
+        {
+            gameManager.IncorrectAnswer();
+        }
     }
    
 
