@@ -1,29 +1,9 @@
 fileFormatVersion: 2
-guid: f4ce20c6afefb9f469903a33b3b0f5f8
+guid: 234bd7e74b7fecd4cb645c3a24435bc0
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Bottom
-    second: {fileID: 2100000, guid: dcbfd2f27e3dfa0448e5bc0be8d3eb3d, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: BottomBaked
-    second: {fileID: 2100000, guid: 293402d15aa0870468f509587b5a0476, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Keycaps
-    second: {fileID: 2100000, guid: 5228f33bc3f6a59478a5c675fe35437f, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: LaptopLid
-    second: {fileID: 2100000, guid: 2a5f27ca3e7764045941bfceac2ddc77, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -55,7 +35,7 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 70
+    globalScale: 100
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -110,7 +90,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 70
+    globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

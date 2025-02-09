@@ -6,6 +6,9 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField]
     private UglyanskiyManager manager;
+    [SerializeField]
+    private GameObject holePrefab;
+
     private int DegreeMood = 2;
     //private int countAnswers = 0;
     private int countCorrectAnswers = 0;
@@ -41,5 +44,28 @@ public class GameManager : MonoBehaviour
     {
         IncreaseDegreeMood();
         manager.Back();
+    }
+
+    public void BadEnd()
+    {
+        var hole = Instantiate(holePrefab);
+        hole.transform.position = new Vector3(0.07f, 0, -1.21f);
+        manager.BadEnd();
+    }
+
+    public void End(int countAnswers)
+    {
+        if (countCorrectAnswers / countAnswers > 0.7f)
+        {
+            manager.GoodEnd();
+        }
+        else if (countCorrectAnswers / countAnswers > 0.5f)
+        {
+            manager.NoGoodEnd();
+        }
+        else
+        {
+            BadEnd();
+        }
     }
 }
