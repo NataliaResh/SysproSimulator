@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField]
+    private UglyanskiyManager manager;
     private int DegreeMood = 2;
     //private int countAnswers = 0;
     private int countCorrectAnswers = 0;
@@ -31,11 +33,13 @@ public class GameManager : MonoBehaviour
     public void CorrectAnswer()
     {
         IncreaseDegreeMood();
+        manager.Next();
         countCorrectAnswers++;
     }
 
     public void IncorrectAnswer()
     {
         IncreaseDegreeMood();
+        manager.Back();
     }
 }
