@@ -30,7 +30,7 @@ public class UIManager : MonoBehaviour
     private void Update()
     {
         lineRenderer.SetPosition(0, transform.position);
-        if (Physics.Raycast(transform.position, transform.forward, out hit, 15))
+        if (Physics.Raycast(transform.position, transform.forward, out hit, 30))
         {
             
             if (hit.collider.gameObject.layer != LayerMask.NameToLayer("UI"))

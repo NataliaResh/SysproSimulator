@@ -9,6 +9,7 @@ public class QuestionnManager : MonoBehaviour
     [SerializeField]
     private List<GameObject> canvas = new List<GameObject>();
 
+
     private int currentCanvas = 0;
     void Start()
     {
@@ -17,8 +18,8 @@ public class QuestionnManager : MonoBehaviour
             obj.SetActive(false);
         }
         canvas[0].SetActive(true);
-    }
 
+    }
     void Update()
     {
 
@@ -27,6 +28,7 @@ public class QuestionnManager : MonoBehaviour
     {
         canvas[currentCanvas].SetActive(false);
         currentCanvas++;
+        canvas[currentCanvas].SetActive(true);
         if (Button.gameObject.CompareTag("CorrectAnswer"))
         {
             gameManager.CorrectAnswer();
