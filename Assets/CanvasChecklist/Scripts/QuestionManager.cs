@@ -12,15 +12,6 @@ public class QuestionnManager : MonoBehaviour
     private int currentCanvas = 0;
     void Start()
     {
-
-    }
-
-    void Update()
-    {
-
-    }
-    public void NextQuestion(GameObject Button)
-    {
         foreach (GameObject obj in canvas)
         {
             obj.SetActive(false);
@@ -28,6 +19,10 @@ public class QuestionnManager : MonoBehaviour
         canvas[0].SetActive(true);
     }
 
+    void Update()
+    {
+
+    }
     public void NextQuestion(GameObject Button)
     {
         canvas[currentCanvas].SetActive(false);
