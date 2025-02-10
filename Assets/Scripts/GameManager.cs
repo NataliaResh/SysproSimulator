@@ -9,13 +9,14 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private GameObject holePrefab;
 
+    [SerializeField]
+    private AudioSource[] audioSources;
+
+    private int currentAudio = 0;
+
     private int DegreeMood = 2;
     //private int countAnswers = 0;
     private int countCorrectAnswers = 0;
-    void Start()
-    {
-        //StartCoroutine();
-    }
 
     private void IncreaseDegreeMood()
     {
@@ -38,28 +39,33 @@ public class GameManager : MonoBehaviour
         IncreaseDegreeMood();
         manager.Next();
         countCorrectAnswers++;
+        audioSources[currentAudio].Play();
+        currentAudio = (currentAudio + 1) % audioSources.Length;
     }
 
     public void IncorrectAnswer()
     {
-        IncreaseDegreeMood();
+        ReduceDegreeMood();
         manager.Back();
+        audioSources[currentAudio].Play();
+        currentAudio = (currentAudio + 1) % audioSources.Length;
     }
 
     public void BadEnd()
     {
         var hole = Instantiate(holePrefab);
-        hole.transform.position = new Vector3(0.07f, 0, -1.21f);
+        hole.transform.position = new Vector3(0, 0, -0.78f);
         manager.BadEnd();
     }
 
     public void End(int countAnswers)
     {
-        if (countCorrectAnswers / countAnswers > 0.7f)
+        print(countCorrectAnswers / countAnswers);
+        if (countCorrectAnswers / countAnswers > 0.85f)
         {
             manager.GoodEnd();
         }
-        else if (countCorrectAnswers / countAnswers > 0.5f)
+        else if (countCorrectAnswers / countAnswers > 0.6f)
         {
             manager.NoGoodEnd();
         }
